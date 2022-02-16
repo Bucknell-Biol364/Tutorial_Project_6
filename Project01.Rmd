@@ -2,8 +2,8 @@
 title: "Group Project 1"
 subtitle: "Biology 368/664 Bucknell University"
 output: html_notebook
-author: Prof. Ken Field
-date: 9 Feb 2022
+author: Derek Knight, Jessica Parrino, Margot Beck
+date: 21 Feb 2022
 ---
 
 ```{r Load Libraries, include=FALSE}
