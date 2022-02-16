@@ -19,6 +19,8 @@ This project will require you to develop a tutorial to teach Bucknell students h
 Discuss with your group the target audience for the tutorial. 
 Examples could be one of the new core Biology classes, another 300-level course (not 364), or a research group. 
 
+Bucknell biology students interested in public health who are new to R and are looking to explore data analysis.  
+
 ```{r echo=FALSE}
 
 ```
@@ -41,7 +43,7 @@ Each student will be expected to complete the following tasks to earn 85% of the
 - Identify and obtain suitable dataset
 - Use a Github repository and version control to collaborate on the project
 - Spend 4-6 hours preparing, coding, and testing tutorial
-  + Data exploration
+  + Data exploration 
   + Data visualization
   + Hypothesis testing
 - Present tutorial in class
