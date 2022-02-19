@@ -55,6 +55,40 @@ Each group should use an *Acknowledgements* section to document the participatio
 
 Additional credit will be awarded for providing assistance to other groups and for the development of a tutorial that goes beyond the minimal expectations listed above.
 
+## Introduction 
+Welcome to coding in R, biology students! As scientists, you understand that data is everything when it comes to documenting the results of your biology labs, supporting or rejecting a hypothesis in an experiment, or understanding trends in public health (like perhaps transmission trends in a worldwide pandemic).Data doesn't speak for itself though, it requires a little bit of help on our part. What good does a spreadsheet of numbers, characters, or observations do on its own if you don't perform some analyses to make sense of it? That is where programs like R come in handy to scientists (or anyone working with datasets, for that matter) as important tools for data exploration, modeling, and analysis. By following along with this R tutorial, you will begin to see how useful coding can be when it comes to working with biological data.  
+
+## About the Dataset
+The data you will be using for this exercise is the NHANES 2009-2012 dataset.  It is survey data from the US National Center for Health Statistics that interviews approximately 5,000 individuals. The interviewees also complete a health examination as part of the survey.  75 variables are included for the 2009-2010 and 2011-2012 sample years.  
+
+## Download Packages and Obtain the Dataset 
+First, you will need to download all required packages and download the NHANES dataset. Packages are essentially collections of functions and data sets. Run the first code chunk below by clicking the green arrow in the top right hand corner to install the packages. 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+if (!require("NHANES")) install.packages("NHANES"); library(NHANES)
+if (!require("UsingR")) install.packages("UsingR"); library(UsingR)
+if (!require("cowplot")) install.packages("cowplot"); library(cowplot)
+if (!require("tidyverse")) install.packages("tidyverse"); library(tidyverse)
+```
+
+Next, run the below chunk of code line by line.  You can do this by hitting "Ctrl+Enter" on each line. The first line will load the dataset "NHANES" into your Environment tab (upper right hand window of R-studio). The second line will open up a info page with more information about the NHANES dataset in the Help tab of the lower right hand window of R-studio.
+
+```{r NHANES}
+data("NHANES")
+help(NHANES)
+```
+
+
+## Explore the Dataset
+Now that you have the relevant packages installed and the dataset downloaded, it's time to get an idea of what the data are made up of. Run the below code chunk line by line to explore the data. The first function, "summary", will provide you with a summary of the dataset which includes the minimum, median, mean, maximum, 1st quartile, 3rd quartile, and NA's for each variable. In the next two lines, the function "head" will show you the first 6 rows of each variable while "tail" will show you the last 6. In the fourth line of code, the function "dim" will display the dimensions of the data table in the form of 'row, column'. This code chunk should help to give you an idea of what variables make up the data, the size of the dataset, and what the range of observations are for each variable.  
+
+```{r Data Exploration}
+summary(NHANES)
+head(NHANES)
+tail(NHANES)
+dim(NHANES)
+```
 ## Sample Dataset
 
 One of the possible datasets to use for the tutorial can be found in the datasauRus package.
@@ -113,6 +147,12 @@ head(datasaurus_wide)
 ```
 
 # Acknowledgements
+The information about the NHANES dataset was found on the 'help' page for NHANES in R.
+
+Margot Beck wrote the introduction and data exploration sections.  
+
+Code used for exploring the data was inspired by a blog post on R-bloggers (https://www.r-bloggers.com/2018/11/explore-your-dataset-in-r/).
+
 
 DatasauRus package and description below: Stephanie Locke https://github.com/jumpingrivers/datasauRus
 
