@@ -40,8 +40,6 @@ Additional credit will be awarded for providing assistance to other groups and f
 
 -----
 
-#Coding in R for Bucknell BIOL 202 Students
-
 ## Introduction 
 Welcome to coding in R, biology students! As scientists, you understand that data is everything when it comes to documenting the results of your biology labs, supporting or rejecting a hypothesis in an experiment, or understanding trends in public health (like perhaps transmission trends in a worldwide pandemic).Data doesn't speak for itself though, it requires a little bit of help on our part. What good does a spreadsheet of numbers, characters, or observations do on its own if you don't perform some analyses to make sense of it? That is where programs like R come in handy to scientists (or anyone working with datasets, for that matter) as important tools for data exploration, modeling, and analysis. By following along with this R tutorial, you will begin to see how useful coding can be when it comes to working with biological data.  
 
@@ -66,7 +64,8 @@ data("NHANES")
 help(NHANES)
 ```
 
-## Data Exploration
+
+## Explore the Dataset
 Now that you have the relevant packages installed and the dataset downloaded, it's time to get an idea of what the data are made up of. Run the below code chunk line by line to explore the data. The first function, "summary", will provide you with a summary of the dataset which includes the minimum, median, mean, maximum, 1st quartile, 3rd quartile, and NA's for each variable. In the next two lines, the function "head" will show you the first 6 rows of each variable while "tail" will show you the last 6. In the fourth line of code, the function "dim" will display the dimensions of the data table in the form of 'row, column'. This code chunk should help to give you an idea of what variables make up the data, the size of the dataset, and what the range of observations are for each variable.  
 
 ```{r Data Exploration}
@@ -77,9 +76,7 @@ dim(NHANES)
 ```
 
 
-## Data Visualization
-
-After exploring the dataset, it is essential to 
+## Sample Dataset
 
 One of the possible datasets to use for the tutorial can be found in the datasauRus package.
 
