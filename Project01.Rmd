@@ -79,7 +79,7 @@ dim(NHANES)
 
 ## Data Visualization
 
-After exploring the dataset, it is essential to 
+After exploring the dataset, it is essential to visualize it. 
 
 One of the possible datasets to use for the tutorial can be found in the datasauRus package.
 
