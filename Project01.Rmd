@@ -55,6 +55,8 @@ Each group should use an *Acknowledgements* section to document the participatio
 
 Additional credit will be awarded for providing assistance to other groups and for the development of a tutorial that goes beyond the minimal expectations listed above.
 
+-----
+
 ## Introduction 
 Welcome to coding in R, biology students! As scientists, you understand that data is everything when it comes to documenting the results of your biology labs, supporting or rejecting a hypothesis in an experiment, or understanding trends in public health (like perhaps transmission trends in a worldwide pandemic).Data doesn't speak for itself though, it requires a little bit of help on our part. What good does a spreadsheet of numbers, characters, or observations do on its own if you don't perform some analyses to make sense of it? That is where programs like R come in handy to scientists (or anyone working with datasets, for that matter) as important tools for data exploration, modeling, and analysis. By following along with this R tutorial, you will begin to see how useful coding can be when it comes to working with biological data.  
 
@@ -72,7 +74,7 @@ if (!require("cowplot")) install.packages("cowplot"); library(cowplot)
 if (!require("tidyverse")) install.packages("tidyverse"); library(tidyverse)
 ```
 
-Next, run the below chunk of code line by line.  You can do this by hitting "Ctrl+Enter" on each line. The first line will load the dataset "NHANES" into your Environment tab (upper right hand window of R-studio). The second line will open up a info page with more information about the NHANES dataset in the Help tab of the lower right hand window of R-studio.
+Next, run the below chunk of code line by line.  You can do this by hitting "Ctrl+Enter" on each line. You can also click the green arrow in the upper right hand corner of grey box. The first line will load the dataset "NHANES" into your Environment tab (upper right hand window of R-studio). The second line will open up an info page with more information about the NHANES dataset in the Help tab of the lower right hand window of R-studio.
 
 ```{r NHANES}
 data("NHANES")
