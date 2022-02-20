@@ -79,9 +79,7 @@ dim(NHANES)
 
 ## Data Visualization
 
-After exploring the dataset, it is essential to visualize it. 
-
-One of the possible datasets to use for the tutorial can be found in the datasauRus package.
+After exploring the dataset, it is essential to visualize it. Here is an example that Professor Field showed us in our Data Analysis course. If you look at the mean of x, mean of y, standard deviation of x, and standard deviation of y, and correlation between x and y, all of the data looks similar. 
 
 ```{r}
 datasaurus_dozen %>% 
