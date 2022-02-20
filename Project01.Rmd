@@ -44,7 +44,7 @@ Each student will be expected to complete the following tasks to earn 85% of the
 - Use a Github repository and version control to collaborate on the project
 - Spend 4-6 hours preparing, coding, and testing tutorial
   + Data exploration (Margot)
-  + Data visualization
+  + Data visualization (Derek)
   + Hypothesis testing
 - Present tutorial in class
 - Provide public archive suitable for sharing to students/faculty
