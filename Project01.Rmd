@@ -77,7 +77,7 @@ head(NHANES$MaritalStatus)
 tail(NHANES$MaritalStatus)
 ```
 
-Let's try to write code youself! Look for teh summary of just the column Race1:
+Let's try to write code youself! Look for the summary of just the column Race1:
 ```{r}
 
 ```
