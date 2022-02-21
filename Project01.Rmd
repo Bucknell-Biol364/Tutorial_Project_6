@@ -60,7 +60,7 @@ data("NHANES")
 help(NHANES)
 ```
 
-## Data Exploration
+# Data Exploration
 Now that you have the relevant packages installed and the dataset downloaded, it's time to get an idea of what the data are made up of. Run the below code chunk line by line to explore the data. The first function, "summary", will provide you with a summary of the dataset which includes the minimum, median, mean, maximum, 1st quartile, 3rd quartile, and NA's for each variable. In the next two lines, the function "head" will show you the first 6 rows of each variable while "tail" will show you the last 6. In the fourth line of code, the function "dim" will display the dimensions of the data table in the form of 'row, column'. This code chunk should help to give you an idea of what variables make up the data, the size of the dataset, and what the range of observations are for each variable.  
 
 ```{r Data Exploration}
@@ -83,7 +83,7 @@ Let's try to write code youself! Look for teh summary of just the column Race1:
 ```
 
 
-## Data Visualization
+# Data Visualization
 
 After exploring the dataset, it is essential to visualize it. Here is a silly example that Professor Field showed us in our Data Analysis course. If you look at the mean of x, mean of y, standard deviation of x, and standard deviation of y, and correlation between x and y, all of the data looks similar. 
 
@@ -179,7 +179,8 @@ Now, take that line of code for the scatterplot with BMI and pulse and add linea
 
 ```
 
-## Hypothesis Testing
+
+# Hypothesis Testing
 Now that we have explored and visualized the data, we can form hypothesis and test them in order to see how (if at all) our data is correlated. For example, lets look at two quantitative variables SleepHrsNight (self-reported number of hours study participant usually gets at night on weekdays or workdays, reported for participants aged 16 years and older) and PhysActiveDays (Number of days in a typical week that participant does moderate or vigorous-intensity activity, reported for participants 12 years or older). 
 
 For this example, the null hypothesis is there is no correlation between number of hours slept per night and exercise. The alternative hypothesis would be number of hours slept per night is correlated to exercise. 
@@ -190,6 +191,7 @@ In order to run this hypothesis test, we want to make sure our data is normally 
 shapiro.test(NHANES$PhysActiveDays)
 
 ```
+
 ## Transforming the data
 We can see that our p-value is very small, so normality is rejected. In order to normalize the data, we can take the log transformation. The histogram function allows you to visualize the log transformed data a see that it is now normally distributed. 
 
@@ -222,6 +224,7 @@ Code for hypothesis testing was inspired by Homeworks 1 and 2.
 
 Jessica Parrino wrote the hypothesis testing and conclusion sections. 
 
+Derek Knight wrote the Data Visualization section and the inserts of open code for the student to try.
 
 DatasauRus package and description below: Stephanie Locke https://github.com/jumpingrivers/datasauRus
 
