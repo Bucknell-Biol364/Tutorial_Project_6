@@ -6,13 +6,6 @@ author: Derek Knight, Jessica Parrino, Margot Beck
 date: 21 Feb 2022
 ---
 
-```{r Load Libraries, include=FALSE}
-# Load other packages here.
-if (!require("datasauRus")) install.packages("datasauRus"); library(datasauRus)
-if (!require("tidyverse")) install.packages("tidyverse"); library(tidyverse)
-```
-
-This project will require you to develop a tutorial to teach Bucknell students how to use R for graphing and data analysis. 
 
 ## Target Audience
 
@@ -56,6 +49,7 @@ knitr::opts_chunk$set(echo = TRUE)
 if (!require("NHANES")) install.packages("NHANES"); library(NHANES)
 if (!require("UsingR")) install.packages("UsingR"); library(UsingR)
 if (!require("cowplot")) install.packages("cowplot"); library(cowplot)
+if (!require("datasauRus")) install.packages("datasauRus"); library(datasauRus)
 if (!require("tidyverse")) install.packages("tidyverse"); library(tidyverse)
 ```
 
@@ -79,7 +73,7 @@ dim(NHANES)
 
 ## Data Visualization
 
-After exploring the dataset, it is essential to visualize it. Here is an example that Professor Field showed us in our Data Analysis course. If you look at the mean of x, mean of y, standard deviation of x, and standard deviation of y, and correlation between x and y, all of the data looks similar. 
+After exploring the dataset, it is essential to visualize it. Here is a silly example that Professor Field showed us in our Data Analysis course. If you look at the mean of x, mean of y, standard deviation of x, and standard deviation of y, and correlation between x and y, all of the data looks similar. 
 
 ```{r}
 datasaurus_dozen %>% 
@@ -93,25 +87,7 @@ datasaurus_dozen %>%
       )
 ```
 
-Boxplots of either the x or the y value show that there is something strange going on.
-
-```{r}
-ggplot(datasaurus_dozen, aes(x = x, colour = dataset))+
-    geom_boxplot()+
-    theme_void()+
-    theme(legend.position = "none")+
-    facet_wrap(~dataset, ncol = 3)
-```
-
-```{r}
-ggplot(datasaurus_dozen, aes(x = y, colour = dataset))+
-    geom_boxplot()+
-    theme_void()+
-    theme(legend.position = "none")+
-    facet_wrap(~dataset, ncol = 3)
-```
-
-But you have to visualize all of the data with a scatter plot to really see the patterns.
+However, upon visualizing the data, we can see there are distinct patterns for each.
 
 ```{r fig.height=12, fig.width=9}
   ggplot(datasaurus_dozen, aes(x = x, y = y, colour = dataset))+
@@ -121,18 +97,9 @@ But you have to visualize all of the data with a scatter plot to really see the 
     facet_wrap(~dataset, ncol = 3)
 ```
 
-And did you notice the code in the {r} codechunk header that controlled the size of the output in the Rmd? Pretty neat trick!
+To visualize the NHANES dataset, 
 
-And here are two versions of the data that you could use in your data visualization tutorial. 
-To use them you would probably want to change the names of the datasets and also make x and y more meaningful. 
-Then save them as a csv or tsv to be imported later for your tutorial. 
 
-```{r}
-datasaurus_long <- datasaurus_dozen
-datasaurus_wide <- datasaurus_dozen_wide
-head(datasaurus_long)
-head(datasaurus_wide)
-```
 
 ## Hypothesis Testing
 Now that we have explored and visualized the data, we can form hypothesis and test them in order to see how (if at all) our data is correlated. For example, lets look at two quantitative variables SleepHrsNight (self-reported number of hours study participant usually gets at night on weekdays or workdays, reported for participants aged 16 years and older) and PhysActiveDays (Number of days in a typical week that participant does moderate or vigorous-intensity activity, reported for participants 12 years or older). 
