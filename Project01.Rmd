@@ -97,9 +97,75 @@ However, upon visualizing the data, we can see there are distinct patterns for e
     facet_wrap(~dataset, ncol = 3)
 ```
 
-To visualize the NHANES dataset, 
+To visualize the NHANES dataset, we can look at the spread of a numeric variable using a jitterplot and a boxplot. The boxplot provides information on the sumarry statistics, and the jitterplot shows where each individual data point lies. We can use boxplots and jitterplots to visualize the differences in the numeric variable for different categorical variables. For this example, we are looking at height for the various races. Now look at the code. you can see we are using a command from the ggplot2 package. We are making Race the x-axis and Height the y-axis. We have a boxplot and a jitterplot on the graph (the size command changes the size of each point and alpha changes how dark each point is). We are suing the cowplot package theme, and we titled the x and y axis. 
+```{r}
+ggplot(NHANES) +
+  aes(x = Race1, y = Height) +
+  geom_boxplot() +
+  geom_jitter(color="black", size=0.1, alpha=0.2) +
+  theme_cowplot() +
+  xlab("Race") + 
+  ylab("Height (cm)")
+```
+
+Now, let's try making a boxplot for yourself. Try to make boxplots of BMI for the two different genders below.
+```{r}
+
+```
 
 
+We can also visualize the difference between two numeric variables. For this, we can make a scatterplot. Looking at the code, we put Height on the x-axis and Pulse on the y-axis. We can change the points size and transparency (alpha), and label different axis as well. 
+```{r}
+ggplot(NHANES, aes(x = Height, y = Pulse)) +
+  geom_point(aes(colour = "black"),
+             position = "jitter", 
+             alpha = 0.8,
+             size=0.05) +
+  xlab("Pulse") + 
+  ylab("Height")
+  theme_cowplot()
+```
+
+You can also color code the data points to change by gender. You can find the code for that below. Here, we told it to change the color of the datapoints based on Gender.
+```{r}
+ggplot(NHANES, aes(x = Height, y = Pulse)) +
+  geom_point(aes(colour = factor(Gender)), 
+             position = "jitter", 
+             alpha = 0.8,
+             size=0.05) +
+  xlab("Pulse") + 
+  ylab("Height")
+  theme_cowplot()
+```
+
+You can also add a linear regression trendline to the graph. You can see the code for that below. We added a geom_smooth command with the method "lm", meaning linear model. We had the colors of the linear model lines match the gender.
+```{r}
+ggplot(NHANES, aes(x = Height, y = Pulse)) +
+  geom_point(aes(colour = factor(Gender)), 
+             position = "jitter", 
+             alpha = 0.8,
+             size=0.05) +
+  geom_smooth(method='lm',aes(group = factor(Gender), 
+                              colour = factor(Gender))) + 
+  xlab("Pulse") + 
+  ylab("Height")
+  theme_cowplot()
+```
+
+Let's have you try a graph! Make a scatterplot with BMI and pulse below:
+```{r}
+
+```
+
+Now, use that code to separate the scatterplot with BMI and pulse based on gender:
+```{r}
+
+```
+
+Now, take that line of code for the scatterplot with BMI and pulse and add linear model lines for the two genders:
+```{r}
+
+```
 
 ## Hypothesis Testing
 Now that we have explored and visualized the data, we can form hypothesis and test them in order to see how (if at all) our data is correlated. For example, lets look at two quantitative variables SleepHrsNight (self-reported number of hours study participant usually gets at night on weekdays or workdays, reported for participants aged 16 years and older) and PhysActiveDays (Number of days in a typical week that participant does moderate or vigorous-intensity activity, reported for participants 12 years or older). 
