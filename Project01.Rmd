@@ -185,6 +185,21 @@ Now that we have explored and visualized the data, we can form hypothesis and te
 
 For this example, the null hypothesis is there is no correlation between number of hours slept per night and exercise. The alternative hypothesis would be number of hours slept per night is correlated to exercise. 
 
+In order to visualize the data and see whether these two variables are normally distributed, we can use another box plot function. Run the next code chunk. 
+```{r}
+ggplot(NHANES) +
+  aes(x = PhysActiveDays ) +
+  geom_histogram(bins=100) +
+  theme_cowplot()
+
+ggplot(NHANES) +
+  aes(x = SleepHrsNight  ) +
+  geom_histogram(bins=100) +
+  theme_cowplot()
+
+```
+As you can see, SleepHrsNight has a nice bell shaped curved and looks normally distributed. However, PhysActiveDays does not. We can use what is called a Shapiro-Wilkes test to verify that the data is or is not normally distributed and go from there.
+
 ## Shapiro Testing
 In order to run this hypothesis test, we want to make sure our data is normally distributed. If the value of p is equal to or less than 0.05, then the hypothesis of normality will be rejected by the Shapiro test. Run the code chunk that tests the normality of each variable in our hypothesis. 
 ```{r}
