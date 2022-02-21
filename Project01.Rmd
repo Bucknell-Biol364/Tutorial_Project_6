@@ -43,10 +43,10 @@ Additional credit will be awarded for providing assistance to other groups and f
 #Coding in R for Bucknell BIOL 202 Students
 
 ## Introduction 
-Welcome to coding in R, biology students! As scientists, you understand that data is everything when it comes to documenting the results of your biology labs, supporting or rejecting a hypothesis in an experiment, or understanding trends in public health (like perhaps transmission trends in a worldwide pandemic).Data doesn't speak for itself though, it requires a little bit of help on our part. What good does a spreadsheet of numbers, characters, or observations do on its own if you don't perform some analyses to make sense of it? That is where programs like R come in handy to scientists (or anyone working with datasets, for that matter) as important tools for data exploration, modeling, and analysis. By following along with this R tutorial, you will begin to see how useful coding can be when it comes to working with biological data.  
+Welcome to coding in R, biology students! As scientists, you understand that data is everything when it comes to documenting the results of your biology labs, supporting or rejecting a hypothesis in an experiment, or understanding trends in public health (like perhaps transmission trends in a worldwide pandemic). Data doesn't speak for itself though, it requires a little bit of help on our part. What good does a spreadsheet of numbers, characters, or observations do on its own if you don't perform some analyses to make sense of it? That is where programs like R come in handy to scientists (or anyone working with datasets, for that matter) as important tools for data exploration, modeling, and analysis. By following along with this R tutorial, you will begin to see how useful coding can be when it comes to working with biological data.  
 
 ## About the Dataset
-The data you will be using for this exercise is the NHANES 2009-2012 dataset.  It is survey data from the US National Center for Health Statistics that interviews approximately 5,000 individuals. The interviewees also complete a health examination as part of the survey.  75 variables are included for the 2009-2010 and 2011-2012 sample years.  
+The data you will be using for this exercise is the NHANES 2009-2012 dataset. It is survey data from the US National Center for Health Statistics that interviews approximately 5,000 individuals. The interviewees also complete a health examination as part of the survey.  75 variables are included for the 2009-2010 and 2011-2012 sample years.  
 
 ## Download Packages and Obtain the Dataset 
 First, you will need to download all required packages and download the NHANES dataset. Packages are essentially collections of functions and data sets. Run the first code chunk below by clicking the green arrow in the top right hand corner to install the packages. 
@@ -134,12 +134,48 @@ head(datasaurus_long)
 head(datasaurus_wide)
 ```
 
+## Hypothesis Testing
+Now that we have explored and visualized the data, we can form hypothesis and test them in order to see how (if at all) our data is correlated. For example, lets look at two quantitative variables SleepHrsNight (self-reported number of hours study participant usually gets at night on weekdays or workdays, reported for participants aged 16 years and older) and PhysActiveDays (Number of days in a typical week that participant does moderate or vigorous-intensity activity, reported for participants 12 years or older). 
+
+For this example, the null hypothesis is there is no correlation between number of hours slept per night and exercise. The alternative hypothesis would be number of hours slept per night is correlated to exercise. 
+
+## Shapiro Testing
+In order to run this hypothesis test, we want to make sure our data is normally distributed. If the value of p is equal to or less than 0.05, then the hypothesis of normality will be rejected by the Shapiro test. Run the code chunk that tests the normality of each variable in our hypothesis. 
+```{r}
+shapiro.test(NHANES$PhysActiveDays)
+
+```
+## Transforming the data
+We can see that our p-value is very small, so normality is rejected. In order to normalize the data, we can take the log transformation. The histogram function allows you to visualize the log transformed data a see that it is now normally distributed. 
+
+```{r}
+log_PhysActiveDays <- log(NHANES$PhysActiveDays)
+hist(log(NHANES$PhysActiveDays))
+
+```
+## Linear Model
+Now that the data is normally distributed, we can run what is called a linear model in order to reject or accept our hypothesis. Linear models describe a continuous response variable as a function of one or more predictor variables. It is a regression model that uses a straight line to describe the relationship between variables (in this case the relationship between hours slept and exercise). It finds the line of best fit through your data by searching for the value of the regression coefficient(s) that minimizes the total error of the model. The next code chunk is telling R to analyze if hours spent exercising effects hours slept. Run the next chunk and pay close attention to it's p-value. 
+```{r}
+lmPhysActiveDays <- lm(SleepHrsNight~log_PhysActiveDays, data=NHANES)
+summary(lmPhysActiveDays)
+
+```
+
+As we can see our P-value is 0.212, therefore we cannot say that the number of days spent exercising is correlated to the number of hours slept. This is okay because now we gain more knowledge about our data and can begin to form and test new hypotheses!
+
+# Conclusion
+This tutorial was created in order to begin to get you to think about and familiarize yourself with R and data exploration. We took quite a large data set, explored and visualized it, formulated a hypothesis and assigned meaning to a large quantity of data. It is okay if your hypotheses are incorrect, or the outcome is not what you predicted. This outcome is still valuable because you gain more information about your dataset, and can formulate new questions and hypotheses to explore and verify.
+
 # Acknowledgements
 The information about the NHANES dataset was found on the 'help' page for NHANES in R.
 
 Margot Beck wrote the introduction and data exploration sections.  
 
 Code used for exploring the data was inspired by a blog post on R-bloggers (https://www.r-bloggers.com/2018/11/explore-your-dataset-in-r/).
+
+Code for hypothesis testing was inspired by Homeworks 1 and 2. 
+
+Jessica Parrino wrote the hypothesis testing and conclusion sections. 
 
 
 DatasauRus package and description below: Stephanie Locke https://github.com/jumpingrivers/datasauRus
