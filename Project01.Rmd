@@ -70,6 +70,18 @@ tail(NHANES)
 dim(NHANES)
 ```
 
+You can also look at the summary of just a single column. You can type the dataset (in this case NHANES) followed by a dollar sign with the column you are interested (in this case MaritalStatus.
+```{r}
+summary(NHANES$MaritalStatus)
+head(NHANES$MaritalStatus)
+tail(NHANES$MaritalStatus)
+```
+
+Let's try to write code youself! Look for teh summary of just the column Race1:
+```{r}
+
+```
+
 
 ## Data Visualization
 
