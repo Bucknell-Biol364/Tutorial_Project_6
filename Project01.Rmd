@@ -207,11 +207,11 @@ shapiro.test(NHANES$PhysActiveDays)
 
 ## Transforming the data
 We can see that our p-value is very small, so normality is rejected. In order to normalize the data, we can take the log transformation. The histogram function allows you to visualize the log transformed data a see that it is now normally distributed. 
-
 ```{r}
 log_PhysActiveDays <- log(NHANES$PhysActiveDays)
 hist(log(NHANES$PhysActiveDays))
 ```
+
 ## Linear Model
 Now that the data is normally distributed, we can run what is called a linear model in order to reject or accept our hypothesis. Linear models describe a continuous response variable as a function of one or more predictor variables. It is a regression model that uses a straight line to describe the relationship between variables (in this case the relationship between hours slept and exercise). It finds the line of best fit through your data by searching for the value of the regression coefficient(s) that minimizes the total error of the model. The next code chunk is telling R to analyze if hours spent exercising effects hours slept. Run the next chunk and pay close attention to it's p-value. 
 ```{r}
@@ -220,6 +220,12 @@ summary(lmPhysActiveDays)
 ```
 
 As we can see our P-value is 0.212, therefore we cannot say that the number of days spent exercising is correlated to the number of hours slept. This is okay because now we gain more knowledge about our data and can begin to form and test new hypotheses!
+
+Now, let's try to do a linear model yourself! Think of two variables you believe could be correlated with each other, and use a linear model to test if they are:
+```{r}
+
+```
+
 
 # Conclusion
 This tutorial was created in order to begin to get you to think about and familiarize yourself with R and data exploration. We took quite a large data set, explored and visualized it, formulated a hypothesis and assigned meaning to a large quantity of data. It is okay if your hypotheses are incorrect, or the outcome is not what you predicted. This outcome is still valuable because you gain more information about your dataset, and can formulate new questions and hypotheses to explore and verify.
