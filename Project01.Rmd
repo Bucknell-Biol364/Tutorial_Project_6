@@ -196,7 +196,6 @@ ggplot(NHANES) +
   aes(x = SleepHrsNight  ) +
   geom_histogram(bins=100) +
   theme_cowplot()
-
 ```
 As you can see, SleepHrsNight has a nice bell shaped curved and looks normally distributed. However, PhysActiveDays does not. We can use what is called a Shapiro-Wilkes test to verify that the data is or is not normally distributed and go from there.
 
@@ -204,7 +203,6 @@ As you can see, SleepHrsNight has a nice bell shaped curved and looks normally d
 In order to run this hypothesis test, we want to make sure our data is normally distributed. If the value of p is equal to or less than 0.05, then the hypothesis of normality will be rejected by the Shapiro test. Run the code chunk that tests the normality of each variable in our hypothesis. 
 ```{r}
 shapiro.test(NHANES$PhysActiveDays)
-
 ```
 
 ## Transforming the data
@@ -213,14 +211,12 @@ We can see that our p-value is very small, so normality is rejected. In order to
 ```{r}
 log_PhysActiveDays <- log(NHANES$PhysActiveDays)
 hist(log(NHANES$PhysActiveDays))
-
 ```
 ## Linear Model
 Now that the data is normally distributed, we can run what is called a linear model in order to reject or accept our hypothesis. Linear models describe a continuous response variable as a function of one or more predictor variables. It is a regression model that uses a straight line to describe the relationship between variables (in this case the relationship between hours slept and exercise). It finds the line of best fit through your data by searching for the value of the regression coefficient(s) that minimizes the total error of the model. The next code chunk is telling R to analyze if hours spent exercising effects hours slept. Run the next chunk and pay close attention to it's p-value. 
 ```{r}
 lmPhysActiveDays <- lm(SleepHrsNight~log_PhysActiveDays, data=NHANES)
 summary(lmPhysActiveDays)
-
 ```
 
 As we can see our P-value is 0.212, therefore we cannot say that the number of days spent exercising is correlated to the number of hours slept. This is okay because now we gain more knowledge about our data and can begin to form and test new hypotheses!
