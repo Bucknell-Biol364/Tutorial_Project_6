@@ -42,7 +42,7 @@ Welcome to coding in R, biology students! As scientists, you understand that dat
 The data you will be using for this exercise is the NHANES 2009-2012 dataset. It is survey data from the US National Center for Health Statistics that interviews approximately 5,000 individuals. The interviewees also complete a health examination as part of the survey.  75 variables are included for the 2009-2010 and 2011-2012 sample years.  
 
 ## Download Packages and Obtain the Dataset 
-First, you will need to download all required packages and download the NHANES dataset. Packages are essentially collections of functions and data sets. Run the first code chunk below by clicking the green arrow in the top right hand corner to install the packages. 
+First, you will need to download all required packages and download the NHANES dataset. Packages are essentially collections of functions and data sets. Run the first code chunk below by clicking the green arrow in the top right hand corner to install the packages. The NHANES and datasaurus packages are data that we will use in this tutorial. Cowplot is used to make graphs look tidy. UsingR and Tidyverse adds new coding functionality.
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
